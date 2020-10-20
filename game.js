@@ -28,7 +28,7 @@ function preload ()
         frameHeight: 16
     });
     this.load.tilemapTiledJSON('map','assets/tiles/woods-01.json');
-    this.load.atlas('pink_monster', 'assets/sprites/pink_monster/pink_monster.png', 'assets/sprites/pink_monster/pink_monster.json');
+    this.load.spritesheet('pink_monster', 'assets/sprites/pink_monster/pink_monster.png', {frameWidth: 32, frameHeight: 32});
 }
 
 function create ()
@@ -50,7 +50,7 @@ function create ()
         faceColor: new Phaser.Display.Color(40,39,37,255)
     });
 
-    const pink_monster = this.add.sprite(50, 128, 'pink_monster', 'Pink_Monster_Idle_4.png');
+    const pink_monster = this.add.sprite(50, 128, 'pink_monster', );
 
 
 }
