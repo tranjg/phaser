@@ -14,7 +14,7 @@ var config = {
     physics: {
         default: 'arcade',
         arcade: {
-            debug: true,
+            //debug: true,
             gravity: { y: 0 }
         }
     },
@@ -62,8 +62,10 @@ function create ()
     const flowers = map.createStaticLayer('flowers', tileset, 0, 0);
     const collisions = map.createStaticLayer('collisions', tileset);
 
+
     collisions.setCollisionByProperty({collides: true});
     collisions.setDepth(10);
+
 
     //   const debugGraphics = this.add.graphics().setAlpha(0.75);
     //   collisions.renderDebug(debugGraphics, {
@@ -71,6 +73,9 @@ function create ()
     //       collidingTileColor: new Phaser.Display.Color(243,234,48,255),
     //       faceColor: new Phaser.Display.Color(40,39,37,255)
     //   });
+
+    this.pink_monster_dust = this.physics
+        .add.sprite(50,160, 'pink_monster_dust', 0);
 
     this.pink_monster_stand = this.physics
         .add.sprite(50, 160, 'pink_monster_stand', 0)
@@ -87,6 +92,8 @@ function create ()
         .setSize(18,30)
         .setOffset(7,3);
 
+
+    this.pink_monster_dust.visible = false;
     this.pink_monster_walk.visible = false;
     this.pink_monster_run.visible = false;
 
@@ -117,7 +124,7 @@ function create ()
         frames: this.anims.generateFrameNames('pink_monster_run', {start: 1, end: 6})
     });
 
-    // var timedEvent = this.time.addEvent({ delay: 1000, callback: updateRunMeter, callbackScope: this, loop: true });
+    // var timedEvent = this.time.addEvent({ delay: 1000, callback: updateRunMeter, callbackScope: this, repeat: 5 });
 
     // pink_monster.setPosition(width / 2, height/ 2);
     // pink_monster.setPosition(this.cameras.main.centerX, this.cameras.main.centerY);
